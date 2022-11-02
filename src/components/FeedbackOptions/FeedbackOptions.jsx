@@ -2,19 +2,28 @@ import PropTypes from 'prop-types';
 
 import css from '../../css/feedback.module.css';
 
-const FeedbackOptions = ({ options, onClickFeedback }) => {
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  const { handleGoodIncrement, handleNeutralIncrement, handleBadIncrement } =
+    options;
+  const { good, neutral, bad } = onLeaveFeedback;
   return (
     <>
       <ul className={css.button__box}>
-        {Object.keys(options).map(btnName => {
-          return (
-            <li key={btnName} className={css.feedback__item}>
-              <button type="button" onClick={onClickFeedback}>
-                {btnName}
-              </button>
-            </li>
-          );
-        })}
+        <li className={css.feedback__item}>
+          <button type="button" onClick={handleGoodIncrement}>
+            {good}
+          </button>
+        </li>
+        <li className={css.feedback__item}>
+          <button type="button" onClick={handleNeutralIncrement}>
+            {neutral}
+          </button>
+        </li>
+        <li className={css.feedback__item}>
+          <button type="button" onClick={handleBadIncrement}>
+            {bad}
+          </button>
+        </li>
       </ul>
     </>
   );
@@ -22,7 +31,7 @@ const FeedbackOptions = ({ options, onClickFeedback }) => {
 
 FeedbackOptions.propTypes = {
   options: PropTypes.object.isRequired,
-  onClickFeedback: PropTypes.func.isRequired,
+  onLeaveFeedback: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default FeedbackOptions;

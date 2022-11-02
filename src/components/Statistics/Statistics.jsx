@@ -3,8 +3,8 @@ import css from '../../css/feedback.module.css';
 import Notification from '../Notification/Notification';
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
-  const totalFeedback = total();
-  const positiveValue = positivePercentage();
+  const totalFeedback = total;
+
   return (
     <>
       {!!totalFeedback ? (
@@ -14,7 +14,7 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
           <p className={css.feedback__element}>Bad: {bad}</p>
           <p className={css.feedback__element}>Total: {totalFeedback}</p>
           <p className={css.feedback__element}>
-            Positive feedback: {positiveValue} %
+            Positive feedback: {positivePercentage} %
           </p>
         </div>
       ) : (
@@ -28,8 +28,11 @@ Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
-  total: PropTypes.func.isRequired,
-  positivePercentage: PropTypes.func.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };
 
+Statistics.defaultProps = {
+  errors: '',
+};
 export default Statistics;

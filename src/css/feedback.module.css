@@ -1,7 +1,8 @@
 body {
-  background-color: #ff8cb2;
+  background-color: #355c7d;
   margin: 0;
   padding-top: 25px;
+  color: #fff;
 }
 
 p {
@@ -42,7 +43,7 @@ button {
 }
 button:hover {
   transform: scale(1.05);
-  background-color: #d85480;
+  background-color: #4583ba;
 }
 
 .feedback__item {
@@ -64,11 +65,11 @@ button:hover {
 .feedback__title {
   margin-top: 25px;
   margin-bottom: 25px;
-  color: #262628;
+  color: #fff;
   font-size: 30px;
 }
 
 .feedback__element {
-  color: #262628;
+  color: #fff;
   margin-bottom: 5px;
 }
